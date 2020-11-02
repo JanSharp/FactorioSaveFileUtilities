@@ -13,5 +13,10 @@ namespace FactorioSaveFileUtilities.Services.Implementations
             using var stream = levelDatEntry.Open();
             return SaveFileData.Deserialize(stream);
         }
+
+        public SaveFileData ReadSaveFile(Stream save)
+        {
+            return ReadSaveFile(new ZipArchive(save));
+        }
     }
 }
